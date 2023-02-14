@@ -3,6 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RazasModule } from './razas/razas.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { LotesModule } from './lotes/lotes.module';
+import { VacasModule } from './vacas/vacas.module';
+import { GestionModule } from './gestion/gestion.module';
+import { AutenticacionModule } from './autenticacion/autenticacion.module';
 
 @Module({
   imports: [
@@ -16,6 +21,11 @@ import { RazasModule } from './razas/razas.module';
       synchronize: true,
     }),
     RazasModule,
+    UsuariosModule,
+    LotesModule,
+    VacasModule,
+    GestionModule,
+    AutenticacionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { RazasService } from './razas.service';
+import { razaDto } from '../../dtos/raza.dto';
 
 @Controller('razas')
 export class RazasController {
@@ -8,5 +9,10 @@ export class RazasController {
   @Get()
   getrazas() {
     return this.razasService.getRaza();
+  }
+
+  @Post('raza')
+  postrazas(@Body() nuevaRaza: razaDto) {
+    return this.razasService.postRaza(nuevaRaza);
   }
 }
