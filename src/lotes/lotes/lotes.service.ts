@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { lotes } from '../../entidades/lote.entity';
+import { loteDto } from 'src/dtos/lote.dto';
+import { lotes } from 'src/entidades/lote.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -10,7 +11,9 @@ export class LotesService {
     private lotesRepository: Repository<lotes>,
   ) {}
 
-  //  async getLotes(idUsuario: number) {
-  //  const lotesU = await this.lotesRepository.find
-  //}
+  //Creacion de lotes
+  async crearLote(loteDto: loteDto) {
+    const nuevoLote = this.lotesRepository.create(loteDto);
+    return this.lotesRepository.save(nuevoLote);
+  }
 }

@@ -1,18 +1,18 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import { razaDto } from 'src/dtos/raza.dto';
 import { RazasService } from './razas.service';
-import { razaDto } from '../../dtos/raza.dto';
 
 @Controller('razas')
 export class RazasController {
   constructor(private razasService: RazasService) {}
 
-  @Get()
-  getrazas() {
-    return this.razasService.getRaza();
+  @Post('crear')
+  crearaza(@Body() nuevaRaza: razaDto) {
+    return this.razasService.crearRaza(nuevaRaza);
   }
 
-  @Post('raza')
-  postrazas(@Body() nuevaRaza: razaDto) {
-    return this.razasService.postRaza(nuevaRaza);
+  @Get('obtener')
+  obtenerRazas() {
+    return this.razasService.obtenerRaza();
   }
 }

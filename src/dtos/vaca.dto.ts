@@ -2,7 +2,7 @@ export class vacaDto {
   arete: string;
   fechaNac: string;
   fechaIng: string;
-  fechareg: string;
+  fechaReg: string;
   raza: number;
   lote: number;
   peso: number;

@@ -2,7 +2,7 @@ import {
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { roles } from './roles.entity';
@@ -51,7 +51,7 @@ export class usuarios {
   })
   updateAt: string;
 
-  @OneToOne(() => roles)
+  @ManyToOne(() => roles)
   @JoinColumn()
   rol: roles;
 }

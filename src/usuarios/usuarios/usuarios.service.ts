@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { usuarioDto } from 'src/dtos/usuario.dto';
 import { usuarios } from 'src/entidades/usuarios.entity';
 import { Repository } from 'typeorm';
-import { usuarioDto } from '../../dtos/usuario.dto';
 
 @Injectable()
 export class UsuariosService {
@@ -11,17 +11,23 @@ export class UsuariosService {
     private usuariosRepository: Repository<usuarios>,
   ) {}
 
-  async getUsuarios() {
+  //Creacion de usuarios
+  async crearUsuario(usuarioDto: usuarioDto) {
+    const nuevoUsuario = this.usuariosRepository.create(usuarioDto);
+    return this.usuariosRepository.save(nuevoUsuario);
+  }
+
+  //Obtener usuarios
+  async obtenerUsuarios() {
     return this.usuariosRepository.find();
   }
 
-  async postUsuario(usuarioDto: usuarioDto) {
-    const nuevoUsuario = new usuarios();
-    nuevoUsuario.nombre = usuarioDto.nombre;
-    nuevoUsuario.correo = usuarioDto.correo;
-    nuevoUsuario.pass = usuarioDto.pass;
-    const usuario = await this.usuariosRepository.save(nuevoUsuario);
-    console.log(usuario);
-    return { mensaje: 'exito' };
+  //Obtener usuario por nombre
+  async obtenerUsuario(id: number) {
+    return this.usuariosRepository.findOne({
+      where: {
+        id,
+      },
+    });
   }
 }
