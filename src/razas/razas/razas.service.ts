@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { razaDto } from 'src/dtos/raza.dto';
+import { edRazaDto, razaDto } from 'src/dtos/raza.dto';
 import { razas } from 'src/entidades/razas.entity';
 import { Repository } from 'typeorm';
 
@@ -18,6 +18,9 @@ export class RazasService {
   }
 
   //Editar Razas
+  async editarRaza(id: number, raza: edRazaDto) {
+    return this.razasRepository.update({ id }, raza);
+  }
 
   //Eliminar Raza
 

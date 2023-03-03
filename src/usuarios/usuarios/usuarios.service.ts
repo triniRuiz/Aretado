@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { usuarioDto } from 'src/dtos/usuario.dto';
 import { usuarios } from 'src/entidades/usuarios.entity';
 import { Repository } from 'typeorm';
+import { editarUsuarioDto } from '../../dtos/usuario.dto';
 
 @Injectable()
 export class UsuariosService {
@@ -11,23 +12,28 @@ export class UsuariosService {
     private usuariosRepository: Repository<usuarios>,
   ) {}
 
-  //Creacion de usuarios
+  //CREAR USUARIO
   async crearUsuario(usuarioDto: usuarioDto) {
     const nuevoUsuario = this.usuariosRepository.create(usuarioDto);
     return this.usuariosRepository.save(nuevoUsuario);
   }
 
-  //Obtener usuarios
+  //OBTENER USUARIOS
   async obtenerUsuarios() {
     return this.usuariosRepository.find();
   }
 
-  //Obtener usuario por nombre
-  async obtenerUsuario(id: number) {
+  //OBTENER UN SOLO USUARIO
+  async obtenerU(id: number) {
     return this.usuariosRepository.findOne({
       where: {
         id,
       },
     });
+  }
+
+  //EDITAR USUARIO
+  async editarU(id: number, usuario: editarUsuarioDto) {
+    return this.usuariosRepository.update({ id }, usuario);
   }
 }

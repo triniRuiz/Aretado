@@ -1,30 +1,37 @@
-import { Controller, Get, Post } from '@nestjs/common';
-import { Body, Param } from '@nestjs/common/decorators';
+import { Controller, Get, Post, ParseIntPipe } from '@nestjs/common';
+import { Body, Param, Put } from '@nestjs/common/decorators';
 import { usuarioDto } from 'src/dtos/usuario.dto';
 import { UsuariosService } from './usuarios.service';
+import { editarUsuarioDto } from '../../dtos/usuario.dto';
 
 @Controller('usuarios')
 export class UsuariosController {
   constructor(private usuariosService: UsuariosService) {}
 
-  //Creacion de nuevos usuarios
+  //CREACION DE USUARIOS
   @Post('crear')
   crearaza(@Body() nuevoUsuario: usuarioDto) {
     return this.usuariosService.crearUsuario(nuevoUsuario);
   }
-  //Retorna todos los usuarios existentes en la bd
-  @Get('obtener')
+  //RETORNA TODOS LOS USUARIOS
+  @Get('todos')
   obtenerUsuarios() {
     return this.usuariosService.obtenerUsuarios();
   }
 
-  //Retorna usuarios dependiendo del nombre
   @Get(':id')
   obtenerUNombre(@Param('id') id: number) {
-    return this.usuariosService.obtenerUsuario(id);
+    return this.usuariosService.obtenerU(id);
   }
 
-  //Eliminar usuario
+  //ELIMINAR USUARIO
 
-  //Editar usuario
+  //EDITAR USUARIO
+  @Put('editar/:id')
+  editarUsuario(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() usuario: editarUsuarioDto,
+  ) {
+    return this.usuariosService.editarU(id, usuario);
+  }
 }

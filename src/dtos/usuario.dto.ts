@@ -3,3 +3,9 @@ export class usuarioDto {
   correo: string;
   pass: string;
 }
+
+export class editarUsuarioDto {
+  nombre?: string;
+  correo?: string;
+  pass?: string;
+}
