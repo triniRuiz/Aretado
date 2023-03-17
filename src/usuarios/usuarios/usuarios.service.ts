@@ -3,7 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { usuarioDto } from 'src/dtos/usuario.dto';
 import { usuarios } from 'src/entidades/usuarios.entity';
 import { Repository } from 'typeorm';
+<<<<<<< Updated upstream
 import { editarUsuarioDto } from '../../dtos/usuario.dto';
+=======
+>>>>>>> Stashed changes
 
 @Injectable()
 export class UsuariosService {
@@ -12,6 +15,7 @@ export class UsuariosService {
     private usuariosRepository: Repository<usuarios>,
   ) {}
 
+<<<<<<< Updated upstream
   //CREAR USUARIO
   async crearUsuario(usuarioDto: usuarioDto) {
     const nuevoUsuario = new usuarios();
@@ -40,5 +44,14 @@ export class UsuariosService {
   //EDITAR USUARIO
   async editarU(id: number, usuario: editarUsuarioDto) {
     return this.usuariosRepository.update({ id }, usuario);
+=======
+  async getUsuarios() {
+    return this.usuariosRepository.find();
+  }
+
+  async crearUsuario(usuario: usuarioDto) {
+    const nuevoUsuario = this.usuariosRepository.create(usuario);
+    return this.usuariosRepository.save(nuevoUsuario);
+>>>>>>> Stashed changes
   }
 }

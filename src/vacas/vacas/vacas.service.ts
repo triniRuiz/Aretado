@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+<<<<<<< Updated upstream
 import { InjectRepository } from '@nestjs/typeorm';
 import { pesoDto } from 'src/dtos/peso.dto';
 import { lotes } from 'src/entidades/lote.entity';
@@ -43,3 +44,8 @@ export class VacasService {
     const pesosNuevo = await this.pesosRepository.save(peso);
   }
 }
+=======
+
+@Injectable()
+export class VacasService {}
+>>>>>>> Stashed changes

@@ -14,6 +14,7 @@ import { RazasService } from './razas.service';
 export class RazasController {
   constructor(private razasService: RazasService) {}
 
+<<<<<<< Updated upstream
   //CREACION DE RAZAS
   @Post('crear')
   crearaza(@Body() nuevaRaza: razaDto) {
@@ -36,5 +37,15 @@ export class RazasController {
   @Put('eliminar/:id')
   elimarRaza(@Param('id', ParseIntPipe) id: number, @Body() raza: edRazaDto) {
     return this.razasService.eliminarRaza(id, raza);
+=======
+  @Get()
+  obtenerRazas() {
+    return this.razasService.getRaza();
+  }
+
+  @Post('raza')
+  CrearRazas(@Body() nuevaRaza: razaDto) {
+    return this.razasService.crearRaza(nuevaRaza);
+>>>>>>> Stashed changes
   }
 }
