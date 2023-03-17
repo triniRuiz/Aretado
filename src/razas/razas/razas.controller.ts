@@ -20,7 +20,7 @@ export class RazasController {
     return this.razasService.crearRaza(nuevaRaza);
   }
 
-  //RETORNA TODAS LAS RAZAS
+  //RETORNA TODAS LAS RAZAS Activas
   @Get('obtener')
   obtenerRazas() {
     return this.razasService.obtenerRaza();
@@ -30,5 +30,11 @@ export class RazasController {
   @Put(':id')
   editaRaza(@Param('id', ParseIntPipe) id: number, @Body() raza: edRazaDto) {
     return this.razasService.editarRaza(id, raza);
+  }
+
+  //Eliminar Raza
+  @Put('eliminar/:id')
+  elimarRaza(@Param('id', ParseIntPipe) id: number, @Body() raza: edRazaDto) {
+    return this.razasService.eliminarRaza(id, raza);
   }
 }

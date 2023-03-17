@@ -7,3 +7,11 @@ export class vacaDto {
   lote: number;
   peso: number;
 }
+export class edVacaDto {
+  arete?: string;
+  fechaNac?: string;
+  fechaIng?: string;
+  fechaReg?: string;
+  raza?: number;
+  lote?: number;
+}

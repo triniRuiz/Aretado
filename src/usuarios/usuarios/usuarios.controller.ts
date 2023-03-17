@@ -13,13 +13,13 @@ export class UsuariosController {
   crearaza(@Body() nuevoUsuario: usuarioDto) {
     return this.usuariosService.crearUsuario(nuevoUsuario);
   }
-  //RETORNA TODOS LOS USUARIOS
-  @Get('todos')
+  //RETORNA TODOS LOS USUARIOS ACTIVOS
+  @Get('obtener')
   obtenerUsuarios() {
     return this.usuariosService.obtenerUsuarios();
   }
-
-  @Get(':id')
+  //Retorna un solo usuario
+  @Get('uno/:id')
   obtenerUNombre(@Param('id') id: number) {
     return this.usuariosService.obtenerU(id);
   }

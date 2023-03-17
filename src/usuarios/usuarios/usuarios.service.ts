@@ -14,13 +14,18 @@ export class UsuariosService {
 
   //CREAR USUARIO
   async crearUsuario(usuarioDto: usuarioDto) {
-    const nuevoUsuario = this.usuariosRepository.create(usuarioDto);
+    const nuevoUsuario = new usuarios();
+    nuevoUsuario.nombre = usuarioDto.nombre;
+    nuevoUsuario.correo = usuarioDto.correo;
+    nuevoUsuario.pass = usuarioDto.pass;
     return this.usuariosRepository.save(nuevoUsuario);
   }
 
   //OBTENER USUARIOS
   async obtenerUsuarios() {
-    return this.usuariosRepository.find();
+    return this.usuariosRepository.findBy({
+      activo: true,
+    });
   }
 
   //OBTENER UN SOLO USUARIO

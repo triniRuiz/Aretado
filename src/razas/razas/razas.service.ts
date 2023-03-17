@@ -17,15 +17,20 @@ export class RazasService {
     return this.razasRepository.save(nuevaRaza);
   }
 
-  //Editar Razas
+  //EDITAR RAZAS
   async editarRaza(id: number, raza: edRazaDto) {
     return this.razasRepository.update({ id }, raza);
   }
 
-  //Eliminar Raza
+  //"Eliminar" Raza *Revisar Pendiente
+  async eliminarRaza(id: number, raza: edRazaDto) {
+    return this.razasRepository.update({ id }, raza);
+  }
 
-  //Regresa todas las razas existentes en la base de datos
+  //Regresa todas las razazas que se encuentren activas en la bd
   async obtenerRaza() {
-    return this.razasRepository.find();
+    return this.razasRepository.findBy({
+      activo: true,
+    });
   }
 }
