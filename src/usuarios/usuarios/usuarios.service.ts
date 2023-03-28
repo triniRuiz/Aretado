@@ -42,6 +42,9 @@ export class UsuariosService {
   async editarU(id: number, usuario: editarUsuarioDto) {
     return this.usuariosRepository.update({ id }, usuario);
   }
+  async getUsuarios() {
+    return this.usuariosRepository.find();
+  }
 
   //Eliminar Usuario
   async eliminarU(id: number) {

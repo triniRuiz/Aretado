@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+<<<<<<< Updated upstream
 import { InjectRepository } from '@nestjs/typeorm';
 import { lotes } from 'src/entidades/lote.entity';
 import { razas } from 'src/entidades/razas.entity';
@@ -86,3 +87,8 @@ export class VacasService {
     return vacas;
   }
 }
+=======
+
+@Injectable()
+export class VacasService {}
+>>>>>>> Stashed changes
