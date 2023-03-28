@@ -7,11 +7,13 @@ export class vacaDto {
   lote: number;
   peso: number;
 }
-export class edVacaDto {
+
+export class editarVacaDto {
   arete?: string;
   fechaNac?: string;
   fechaIng?: string;
   fechaReg?: string;
   raza?: number;
   lote?: number;
+  peso?: number;
 }

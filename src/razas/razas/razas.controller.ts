@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -33,8 +34,8 @@ export class RazasController {
   }
 
   //Eliminar Raza
-  @Put('eliminar/:id')
-  elimarRaza(@Param('id', ParseIntPipe) id: number, @Body() raza: edRazaDto) {
-    return this.razasService.eliminarRaza(id, raza);
+  @Delete('eliminar/:id')
+  elimarRaza(@Param('id', ParseIntPipe) id: number) {
+    return this.razasService.eliminarRaza(id);
   }
 }

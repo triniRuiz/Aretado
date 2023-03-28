@@ -4,5 +4,4 @@ export class razaDto {
 
 export class edRazaDto {
   nombre?: string;
-  activo?: boolean;
 }

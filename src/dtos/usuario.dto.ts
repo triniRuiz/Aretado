@@ -9,3 +9,8 @@ export class editarUsuarioDto {
   correo?: string;
   pass?: string;
 }
+
+export class inicioSesionDto {
+  correo: string;
+  pass: string;
+}

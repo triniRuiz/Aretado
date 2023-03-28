@@ -3,3 +3,9 @@ export class pesoDto {
   idVaca: number;
   fechaPeso: string;
 }
+
+export class editarPesoDto {
+  peso?: number;
+  idVaca?: number;
+  fechaPeso?: string;
+}

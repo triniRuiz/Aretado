@@ -4,6 +4,7 @@ import { usuarioDto } from 'src/dtos/usuario.dto';
 import { usuarios } from 'src/entidades/usuarios.entity';
 import { Repository } from 'typeorm';
 import { editarUsuarioDto } from '../../dtos/usuario.dto';
+import { hashSync } from 'bcrypt';
 
 @Injectable()
 export class UsuariosService {
@@ -17,7 +18,7 @@ export class UsuariosService {
     const nuevoUsuario = new usuarios();
     nuevoUsuario.nombre = usuarioDto.nombre;
     nuevoUsuario.correo = usuarioDto.correo;
-    nuevoUsuario.pass = usuarioDto.pass;
+    nuevoUsuario.pass = await hashSync(usuarioDto.pass, 8);
     return this.usuariosRepository.save(nuevoUsuario);
   }
 
@@ -40,5 +41,10 @@ export class UsuariosService {
   //EDITAR USUARIO
   async editarU(id: number, usuario: editarUsuarioDto) {
     return this.usuariosRepository.update({ id }, usuario);
+  }
+
+  //Eliminar Usuario
+  async eliminarU(id: number) {
+    return this.usuariosRepository.delete({ id });
   }
 }

@@ -4,5 +4,5 @@ export class loteDto {
 }
 
 export class edloteDto {
-  lote?: string;
+  lote: string;
 }

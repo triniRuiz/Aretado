@@ -23,8 +23,8 @@ export class RazasService {
   }
 
   //"Eliminar" Raza *Revisar Pendiente
-  async eliminarRaza(id: number, raza: edRazaDto) {
-    return this.razasRepository.update({ id }, raza);
+  async eliminarRaza(id: number) {
+    return this.razasRepository.delete({ id });
   }
 
   //Regresa todas las razazas que se encuentren activas en la bd

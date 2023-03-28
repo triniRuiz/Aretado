@@ -25,18 +25,19 @@ export class LotesService {
     return this.lotesRepository.save(nuevoLote);
   }
 
-  //OBTENER LOTES POR USUARIO        ****REVISAR
-  async lotesUsuario(idUsuario: number) {
-    const usuarios = await this.lotesRepository.find({
-      relations: {
-        usuario: true,
-      },
-    });
-    return usuarios;
+  //OBTENER LOTES POR USUARIO
+  async loteUsuario() {
+    // return this.lotesRepository.findBy({
+    //});
   }
 
-  //EDITAR LOTE
-  async editarLotes(id: number, lote: edloteDto) {
-    return this.lotesRepository.update({ id }, lote);
+  //EDITAR Lotes
+  async editarLote(id: number, editarLote: edloteDto) {
+    return this.lotesRepository.update({ id }, editarLote);
+  }
+
+  //Eliminar Lote
+  async eliminarLote(id: number) {
+    return this.lotesRepository.delete({ id });
   }
 }

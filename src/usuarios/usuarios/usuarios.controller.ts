@@ -1,5 +1,5 @@
 import { Controller, Get, Post, ParseIntPipe } from '@nestjs/common';
-import { Body, Param, Put } from '@nestjs/common/decorators';
+import { Body, Delete, Param, Put } from '@nestjs/common/decorators';
 import { usuarioDto } from 'src/dtos/usuario.dto';
 import { UsuariosService } from './usuarios.service';
 import { editarUsuarioDto } from '../../dtos/usuario.dto';
@@ -25,10 +25,14 @@ export class UsuariosController {
   }
 
   //ELIMINAR USUARIO
+  @Delete('eliminar/:id')
+  eliminarUs(@Param('id', ParseIntPipe) id: number) {
+    return this.usuariosService.eliminarU(id);
+  }
 
   //EDITAR USUARIO
   @Put('editar/:id')
-  editarUsuario(
+  editaRaza(
     @Param('id', ParseIntPipe) id: number,
     @Body() usuario: editarUsuarioDto,
   ) {
