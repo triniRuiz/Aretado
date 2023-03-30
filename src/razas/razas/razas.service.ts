@@ -12,7 +12,6 @@ export class RazasService {
   ) {}
 
   //Creacion de nuevas razas
-<<<<<<< Updated upstream
   async crearRaza(razaDto: razaDto) {
     const nuevaRaza = this.razasRepository.create(razaDto);
     return this.razasRepository.save(nuevaRaza);
@@ -33,10 +32,5 @@ export class RazasService {
     return this.razasRepository.findBy({
       activo: true,
     });
-=======
-  async crearRaza(raza: razaDto) {
-    const nuevaRaza = this.razasRepository.create(raza);
-    return this.razasRepository.save(nuevaRaza);
->>>>>>> Stashed changes
   }
 }

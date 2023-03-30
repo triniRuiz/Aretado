@@ -1,12 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-<<<<<<< Updated upstream
 import { edloteDto, loteDto } from 'src/dtos/lote.dto';
 import { lotes } from 'src/entidades/lote.entity';
 import { usuarios } from 'src/entidades/usuarios.entity';
-=======
-import { lotes } from 'src/entidades/lote.entity';
->>>>>>> Stashed changes
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -17,7 +13,6 @@ export class LotesService {
     @InjectRepository(usuarios)
     private usuariosRepository: Repository<usuarios>,
   ) {}
-<<<<<<< Updated upstream
 
   //CREACION DE LOTES
   async crearLote(loteDto: loteDto) {
@@ -45,6 +40,4 @@ export class LotesService {
   async eliminarLote(id: number) {
     return this.lotesRepository.delete({ id });
   }
-=======
->>>>>>> Stashed changes
 }
