@@ -16,7 +16,7 @@ import { AutenticacionModule } from './autenticacion/autenticacion.module';
       host: 'localhost',
       username: 'root',
       password: '',
-      database: 'prueba2',
+      database: 'practicas',
       entities: ['./**/*.entity.js'],
       synchronize: true,
     }),

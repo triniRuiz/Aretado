@@ -13,7 +13,6 @@ export class UsuariosService {
     private usuariosRepository: Repository<usuarios>,
   ) {}
 
-  //CREAR USUARIO
   async crearUsuario(usuarioDto: usuarioDto) {
     const nuevoUsuario = new usuarios();
     nuevoUsuario.nombre = usuarioDto.nombre;

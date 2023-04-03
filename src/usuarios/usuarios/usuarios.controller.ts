@@ -8,16 +8,17 @@ import { editarUsuarioDto } from '../../dtos/usuario.dto';
 export class UsuariosController {
   constructor(private usuariosService: UsuariosService) {}
 
-  //CREACION DE USUARIOS
   @Post('crear')
-  crearaza(@Body() nuevoUsuario: usuarioDto) {
+  crearU(@Body() nuevoUsuario: usuarioDto) {
     return this.usuariosService.crearUsuario(nuevoUsuario);
   }
+
   //RETORNA TODOS LOS USUARIOS ACTIVOS
   @Get('obtener')
   obtenerUsuarios() {
     return this.usuariosService.obtenerUsuarios();
   }
+
   //Retorna un solo usuario
   @Get('uno/:id')
   obtenerUNombre(@Param('id') id: number) {
