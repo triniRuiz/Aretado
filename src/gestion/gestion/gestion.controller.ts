@@ -12,7 +12,6 @@ export class GestionController {
     return this.gestionService.nuevoPeso(nuevopeso);
   }
 
-
   //PESO POR VACA POR SEMANA
   @Get('vacaSemana/:idvaca/:anno')
   pesoVacaSemana(@Param('idvaca') idvaca: number, @Param('anno') anno: string) {
